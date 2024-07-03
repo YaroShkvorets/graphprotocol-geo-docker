@@ -1,0 +1,43 @@
+[common.indexer]
+indexer_address = "${STAKING_WALLET_ADDRESS}"
+operator_mnemonic = "${OPERATOR_SEED_PHRASE}"
+
+[common.server]
+host_and_port = "0.0.0.0:7602"
+url_prefix = "/"
+free_query_auth_token = "${GEO_FREE_QUERY_AUTH_TOKEN}"
+
+[common.database]
+postgres_url = "postgresql://arbtest:secret@postgres2:5432/agent-db0"
+
+[common.network_subgraph]
+deployment = "${INDEXER_AGENT_NETWORK_SUBGRAPH_DEPLOYMENT}"
+query_url = "${INDEXER_AGENT_NETWORK_SUBGRAPH_ENDPOINT}"
+recently_closed_allocation_buffer_seconds = 60
+serve_subgraph = false
+syncing_interval = 60
+
+[common.escrow_subgraph]
+deployment = "${INDEXER_AGENT_TAP_SUBGRAPH_DEPLOYMENT}"
+query_url = "${INDEXER_AGENT_TAP_SUBGRAPH_ENDPOINT}"
+serve_subgraph = false
+syncing_interval = 60
+
+[common.graph_node]
+query_base_url = "http://query-node-0:8000"
+status_url = "http://index-node-0:8030/graphql"
+
+[common.graph_network]
+id = 1
+chain_id = 421614
+
+[common.scalar]
+chain_id = 421614
+receipts_verifier_address = "0xfC24cE7a4428A6B89B52645243662A02BA734ECF"
+timestamp_error_tolerance = 30
+receipt_max_value = 10000000000000000
+
+[geo]
+status_url = "${GEO_API_ENDPOINT}/graphql"
+query_base_url = "${GEO_API_ENDPOINT}"
+subgraph_deployment_id = "${GEO_SUBGRAPH_DEPLOYMENT_ID}"

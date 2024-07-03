@@ -4,3 +4,11 @@
 .idea/
 .env
 offchain-subgraphs
+postgres-socket
+.bash_history
+*.log
+geo-configs/config.yaml
+graph-node-configs/config.toml
+tap-agent/config.toml
+nginx/nginx.conf
+    
