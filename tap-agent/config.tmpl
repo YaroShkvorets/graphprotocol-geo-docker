@@ -46,7 +46,7 @@ query_url = "${INDEXER_AGENT_NETWORK_SUBGRAPH_ENDPOINT}"
 # deployment_id = "Qmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 # Refreshing interval for the Graph contracts information from the Graph Network
 # subgraph.
-syncing_interval_secs = 300
+syncing_interval_secs = 60
 # Amount of time to keep treating an allocation as active after it has been closed.
 # So that we can keep serving queries while the information about the allocation closure
 # propagates to all the consumers.
@@ -109,7 +109,6 @@ max_receipt_value_grt = "0.001" # 0.001 GRT. We use strings to prevent rounding 
 # max_amount_willing_to_lose_grt = "0.1"
 max_amount_willing_to_lose_grt = 0.1
 
-
 [tap.rav_request]
 # Trigger value is the amount used to trigger a rav request
 # The dividor is used to define the trigger value of a RAV request using
@@ -118,7 +117,7 @@ max_amount_willing_to_lose_grt = 0.1
 #   max_amount_willing_to_lose_grt / trigger_value_divisor = trigger_value
 #
 # Must be value greater than 1, but recommended to be 10 or more
-trigger_value_divisor = 10
+trigger_value_divisor = 100
 # Buffer (in seconds) to add between the current time and the timestamp of the
 # last unaggregated fee when triggering a RAV request.
 timestamp_buffer_secs = 60

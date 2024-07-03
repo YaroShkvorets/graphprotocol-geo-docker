@@ -356,27 +356,27 @@ services:
 #####################          TAP AGENT  CONTAINER            #######################
 ######################################################################################
 
-  # indexer-tap-agent:
-  #     image: ${INDEXER_TAP_AGENT_VERSION:-ghcr.io/graphprotocol/indexer-tap-agent:1.0.0-rc.2}
-  #     container_name: indexer-tap-agent
-  #     depends_on:
-  #       index-node-0:
-  #         condition: service_started
-  #       query-node-0:
-  #         condition: service_healthy
-  #       postgres2:
-  #         condition: service_started
-  #     environment: 
-  #       - RUST_LOG=info
-  #     expose:
-  #       - 7603
-  #     command:
-  #       - --config=/usr/local/bin/agent-config.toml
-  #     volumes:
-  #       - ./tap-agent/config.toml:/usr/local/bin/agent-config.toml
-  #     networks:
-  #       - monitor-net
-  #     restart: unless-stopped
+  indexer-tap-agent:
+      image: ${INDEXER_TAP_AGENT_VERSION:-ghcr.io/graphprotocol/indexer-tap-agent:1.0.0-rc.2}
+      container_name: indexer-tap-agent
+      depends_on:
+        index-node-0:
+          condition: service_started
+        query-node-0:
+          condition: service_healthy
+        postgres2:
+          condition: service_started
+      environment: 
+        - RUST_LOG=info
+      expose:
+        - 7603
+      command:
+        - --config=/usr/local/bin/agent-config.toml
+      volumes:
+        - ./tap-agent/config.toml:/usr/local/bin/agent-config.toml
+      networks:
+        - monitor-net
+      restart: unless-stopped
 
 
 
